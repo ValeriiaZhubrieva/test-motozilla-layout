@@ -1,0 +1,807 @@
+<!doctype html>
+<html lang="uk">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="preload" href="./assets/fonts/WixMadeforDisplay-SemiBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+		<link rel="preload" href="./assets/fonts/WixMadeforDisplay-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+		<link rel="preload" href="./assets/fonts/WixMadeforDisplay-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+		<link rel="shortcut icon" href="./assets/img/favicon.ico">
+		<title>Checkout</title>
+		<link rel="stylesheet" crossorigin="" href="./css/style.min.css?v=1790864318309">
+		<link rel="stylesheet" crossorigin="" href="./css/select.min.css?v=1790864318309">
+		<link rel="stylesheet" crossorigin="" href="./css/showmore.min.css?v=1790864318309">
+		<link rel="stylesheet" crossorigin="" href="./css/popup.min.css?v=1790864318309">
+		<link rel="stylesheet" crossorigin="" href="./css/header.min.css?v=1790864318309">
+		<link rel="stylesheet" crossorigin="" href="./css/checkout.min.css?v=1790864318309">
+		<link rel="stylesheet" crossorigin="" href="./css/tippy.min.css?v=1790864318309">
+		<link rel="stylesheet" crossorigin="" href="./css/checkbox.min.css?v=1790864318309">
+		<link rel="stylesheet" crossorigin="" href="./css/top-info.min.css?v=1790864318309">
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="top-info" style="background-color: #1a141f; color: #fff;">
+				<a href="#" class="top-info__link">
+					<span class="top-info__icons">
+						<svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M12.0003 23C10.4975 22.9999 9.02934 22.5483 7.78624 21.7037C6.54315 20.8592 5.58244 19.6606 5.02868 18.2635C4.47493 16.8664 4.35367 15.3352 4.68062 13.8683C5.00757 12.4015 5.76766 11.0667 6.86234 10.037C8.20434 8.774 11.5003 6.5 11.0003 1.5C17.0003 5.5 20.0003 9.5 14.0003 15.5C15.0003 15.5 16.5003 15.5 19.0003 13.03C19.2703 13.803 19.5003 14.634 19.5003 15.5C19.5003 17.4891 18.7102 19.3968 17.3036 20.8033C15.8971 22.2098 13.9895 23 12.0003 23Z" fill="#E80000"></path>
+						</svg>
+						<svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M12.0003 23C10.4975 22.9999 9.02934 22.5483 7.78624 21.7037C6.54315 20.8592 5.58244 19.6606 5.02868 18.2635C4.47493 16.8664 4.35367 15.3352 4.68062 13.8683C5.00757 12.4015 5.76766 11.0667 6.86234 10.037C8.20434 8.774 11.5003 6.5 11.0003 1.5C17.0003 5.5 20.0003 9.5 14.0003 15.5C15.0003 15.5 16.5003 15.5 19.0003 13.03C19.2703 13.803 19.5003 14.634 19.5003 15.5C19.5003 17.4891 18.7102 19.3968 17.3036 20.8033C15.8971 22.2098 13.9895 23 12.0003 23Z" fill="#E80000"></path>
+						</svg>
+						<svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M12.0003 23C10.4975 22.9999 9.02934 22.5483 7.78624 21.7037C6.54315 20.8592 5.58244 19.6606 5.02868 18.2635C4.47493 16.8664 4.35367 15.3352 4.68062 13.8683C5.00757 12.4015 5.76766 11.0667 6.86234 10.037C8.20434 8.774 11.5003 6.5 11.0003 1.5C17.0003 5.5 20.0003 9.5 14.0003 15.5C15.0003 15.5 16.5003 15.5 19.0003 13.03C19.2703 13.803 19.5003 14.634 19.5003 15.5C19.5003 17.4891 18.7102 19.3968 17.3036 20.8033C15.8971 22.2098 13.9895 23 12.0003 23Z" fill="#E80000"></path>
+						</svg>
+					</span>
+					<span>Знижки до Чорної Пʼятниці до -50%</span>
+					<span class="top-info__icons top-info__icons--last">
+						<svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M12.0003 23C10.4975 22.9999 9.02934 22.5483 7.78624 21.7037C6.54315 20.8592 5.58244 19.6606 5.02868 18.2635C4.47493 16.8664 4.35367 15.3352 4.68062 13.8683C5.00757 12.4015 5.76766 11.0667 6.86234 10.037C8.20434 8.774 11.5003 6.5 11.0003 1.5C17.0003 5.5 20.0003 9.5 14.0003 15.5C15.0003 15.5 16.5003 15.5 19.0003 13.03C19.2703 13.803 19.5003 14.634 19.5003 15.5C19.5003 17.4891 18.7102 19.3968 17.3036 20.8033C15.8971 22.2098 13.9895 23 12.0003 23Z" fill="#E80000"></path>
+						</svg>
+						<svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M12.0003 23C10.4975 22.9999 9.02934 22.5483 7.78624 21.7037C6.54315 20.8592 5.58244 19.6606 5.02868 18.2635C4.47493 16.8664 4.35367 15.3352 4.68062 13.8683C5.00757 12.4015 5.76766 11.0667 6.86234 10.037C8.20434 8.774 11.5003 6.5 11.0003 1.5C17.0003 5.5 20.0003 9.5 14.0003 15.5C15.0003 15.5 16.5003 15.5 19.0003 13.03C19.2703 13.803 19.5003 14.634 19.5003 15.5C19.5003 17.4891 18.7102 19.3968 17.3036 20.8033C15.8971 22.2098 13.9895 23 12.0003 23Z" fill="#E80000"></path>
+						</svg>
+						<svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M12.0003 23C10.4975 22.9999 9.02934 22.5483 7.78624 21.7037C6.54315 20.8592 5.58244 19.6606 5.02868 18.2635C4.47493 16.8664 4.35367 15.3352 4.68062 13.8683C5.00757 12.4015 5.76766 11.0667 6.86234 10.037C8.20434 8.774 11.5003 6.5 11.0003 1.5C17.0003 5.5 20.0003 9.5 14.0003 15.5C15.0003 15.5 16.5003 15.5 19.0003 13.03C19.2703 13.803 19.5003 14.634 19.5003 15.5C19.5003 17.4891 18.7102 19.3968 17.3036 20.8033C15.8971 22.2098 13.9895 23 12.0003 23Z" fill="#E80000"></path>
+						</svg>
+					</span>
+				</a>
+			</div>
+			<header class="header">
+				<div class="header__container">
+					<div class="header__inner">
+						<a href="#" class="header__logo">
+							<img src="./assets/img/logo.svg" alt="logo">
+						</a>
+						<div class="header__phone phone-block" data-drop-block="">
+							<div class="phone-block__top">
+								<div class="phone-block__head">
+									<a href="tel:0800330328" class="phone-block__phone">
+										<span>0 800 330-328</span>
+									</a>
+									<button type="button" class="phone-block__arrow" data-drop-toggle="">
+										<svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M15.3027 8.03027L9.99902 13.333L4.69531 8.03027L5.87402 6.85156L9.99902 10.9766L14.124 6.85156L15.3027 8.03027Z" fill="currentColor"></path>
+										</svg>
+									</button>
+								</div>
+								<div class="phone-block__info">Безкоштовно з мобільних</div>
+							</div>
+							<div class="phone-block__drop">
+								<div class="phone-block__time">
+									<span>Дзвоніть сьогодні</span>
+									<span>з 9:00 до 18:00</span>
+								</div>
+								<div class="phone-block__contacts">
+									<a href="tel:0443336208" class="phone-block__tel">044 333-62-08</a>
+									<a href="mailto:support@motozilla.com.ua" class="phone-block__link">support@motozilla.com.ua</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</header>
+			<main class="page">
+				<div class="bread-crumbs">
+					<div class="bread-crumbs__container">
+						<div class="bread-crumbs__for-mob">
+							<a href="#" class="bread-crumbs__back">
+								<svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M9.02344 10.0001L13.1484 5.87511L11.9701 4.69678L6.66677 10.0001L11.9701 15.3034L13.1484 14.1251L9.02344 10.0001Z" fill="currentColor"></path>
+								</svg>
+								<span>Оформлення замовлення</span>
+							</a>
+							<button type="button" class="bread-crumbs__btn" data-menu="crumbs" data-menu-click="">
+								<svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M21 17.9998V19.9998H3V17.9998H21ZM6.596 3.90381L8.01 5.31781L4.828 8.49981L8.01 11.6818L6.596 13.0958L2 8.49981L6.596 3.90381ZM21 10.9998V12.9998H12V10.9998H21ZM21 3.99981V5.99981H12V3.99981H21Z" fill="currentColor"></path>
+								</svg>
+							</button>
+						</div>
+						<div class="bread-crumbs__inner" data-menu-target="crumbs">
+							<div class="bread-crumbs__body">
+								<div class="bread-crumbs__head">
+									<div class="bread-crumbs__title">Перейти в розділ</div>
+									<button type="button" class="bread-crumbs__close" data-menu-close="">
+										<svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M11.9997 10.5862L16.9497 5.63623L18.3637 7.05023L13.4137 12.0002L18.3637 16.9502L16.9497 18.3642L11.9997 13.4142L7.04974 18.3642L5.63574 16.9502L10.5857 12.0002L5.63574 7.05023L7.04974 5.63623L11.9997 10.5862Z" fill="currentColor"></path>
+										</svg>
+									</button>
+								</div>
+								<div class="bread-crumbs__list">
+									<a href="#" class="bread-crumbs__link">Головна</a>
+									<a href="#" class="bread-crumbs__link is-active">Оформлення замовлення</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<section class="checkout">
+					<div class="checkout__container">
+						<h1 class="checkout__title">Оформлення замовлення</h1>
+						<div class="checkout__body">
+							<div class="checkout__wrapper" data-form-steps="">
+								<div class="checkout__step" data-form-step="" data-form-step-id="personal" data-form-step-state="active" data-form-user-state="new">
+									<div class="checkout__head">
+										<div class="checkout__head-info">
+											<div class="checkout__num">Крок 1</div>
+											<div class="checkout__subtitle">Контактна інформація</div>
+											<div class="checkout__summary" data-form-step-summary="" hidden>
+												<div class="checkout__summary-item">Олександр Марчук</div>
+												<div class="checkout__summary-item">+380 93 555 66 77</div>
+											</div>
+										</div>
+										<div class="checkout__actions">
+											<div class="checkout__user-nav" data-form-user-nav="">
+												<button type="button" class="checkout__user-tab is-active" data-form-user="new">Новий покупець</button>
+												<button type="button" class="checkout__user-tab" data-form-user="registered">Зареєстрований покупець</button>
+											</div>
+											<button type="button" class="checkout__edit border-btn btn-sz-middle" data-form-step-edit="" hidden>
+												<span>Редагувати</span>
+												<svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M11.6667 5L15 8.33333M2.5 17.5L3.15151 13.591C3.26464 12.9122 3.58706 12.2857 4.07367 11.7991L12.8891 2.98356C13.5338 2.33882 14.5792 2.33881 15.2239 2.98353L17.0165 4.77605C17.6612 5.42075 17.6612 6.46602 17.0165 7.11074L8.20099 15.9264C7.71438 16.413 7.08787 16.7354 6.40905 16.8485L2.5 17.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+												</svg>
+											</button>
+											<button type="button" class="checkout__exit" data-form-user-exit="" hidden>
+												<span>Вийти</span>
+												<svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M12.083 5.00016C12.0441 4.08898 11.9286 3.50837 11.5851 3.06163C11.4518 2.88828 11.2964 2.73311 11.1227 2.6001C10.4481 2.0835 9.46886 2.0835 7.51038 2.0835H7.09286C4.73122 2.0835 3.55039 2.0835 2.81672 2.81572C2.08305 3.54795 2.08303 4.72647 2.08302 7.08347L2.08301 12.9168C2.083 15.2738 2.083 16.4524 2.81668 17.1846C3.55035 17.9168 4.73119 17.9168 7.09286 17.9168H7.51034C9.46884 17.9168 10.4481 17.9168 11.1227 17.4002C11.2964 17.2672 11.4518 17.1121 11.5851 16.9387C11.9286 16.4919 12.0441 15.9112 12.083 14.9998M17.083 10.0001H7.08301M14.9997 12.9168C14.9997 12.9168 17.9163 10.7687 17.9163 10.0001C17.9163 9.23154 14.9997 7.0835 14.9997 7.0835" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+												</svg>
+											</button>
+										</div>
+									</div>
+									<div class="checkout__content" data-form-step-content="">
+										<div class="checkout__user" data-form-user-content="new">
+											<div class="checkout__inputs">
+												<div class="input-field">
+													<input autocomplete="off" type="text" name="firstname" placeholder="Им’я*" class="input-field__input input input-sz-middle">
+												</div>
+												<div class="input-field">
+													<input autocomplete="off" type="text" name="lastname" placeholder="Призвище*" class="input-field__input input input-sz-middle">
+												</div>
+												<div class="input-field">
+													<input autocomplete="off" type="tel" name="phone" placeholder="Номер телефону*" class="input-field__input input input-sz-middle" data-fls-input-mask="+38 (099) 999 99 99">
+												</div>
+												<div class="input-field">
+													<input autocomplete="off" type="email" name="email" placeholder="E-mail" class="input-field__input input input-sz-middle">
+												</div>
+											</div>
+											<label data-fls-checkbox="" class="checkbox-form">
+												<input class="checkbox-form__input" type="checkbox" value="1" name="form[]" data-target-form="other">
+												<span class="checkbox-form__label">
+													<span class="checkbox-form__text">Отримувач інша людина</span>
+												</span>
+											</label>
+											<div class="checkout__inputs" data-form-target="other">
+												<div class="input-field">
+													<input autocomplete="off" type="text" name="otherFirstname" placeholder="Им’я*" class="input-field__input input input-sz-middle">
+												</div>
+												<div class="input-field">
+													<input autocomplete="off" type="text" name="otherLastname" placeholder="Призвище*" class="input-field__input input input-sz-middle">
+												</div>
+												<div class="input-field">
+													<input autocomplete="off" type="tel" name="otherPhone" placeholder="Номер телефону*" class="input-field__input input input-sz-middle" data-fls-input-mask="+38 (099) 999 99 99">
+												</div>
+												<div class="input-field">
+													<input autocomplete="off" type="email" name="otherEmail" placeholder="E-mail" class="input-field__input input input-sz-middle">
+												</div>
+											</div>
+										</div>
+										<div class="checkout__login" data-form-user-content="registered" hidden>
+											<form action="#" class="checkout__login-form">
+												<div class="input-field">
+													<input autocomplete="off" type="text" name="phone" placeholder="+38 (0XX) XXX XX XX" class="checkout__login-input input" data-fls-input-mask="+38 (099) 999 99 99">
+												</div>
+												<button type="submit" class="checkout__login-send green-btn btn-sz-middle btn--fw">Отримати смс с кодом</button>
+											</form>
+											<div class="checkout__login-bottom">
+												<div class="checkout__login-subtitle">Або через соціальні мережі</div>
+												<div class="checkout__login-btns">
+													<button type="button" class="checkout__login-btn border-btn btn-sz-middle">
+														<svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+															<path d="M20 10C20 4.47717 15.5228 1.28506e-05 9.99999 1.28506e-05C4.47716 1.28506e-05 0 4.47717 0 10C0 14.6898 3.2286 18.6249 7.58423 19.7055V13.0558H5.52216V10H7.58423V8.68325C7.58423 5.27957 9.12455 3.70197 12.4662 3.70197C13.0997 3.70197 14.1928 3.82617 14.64 3.95041V6.72057C14.404 6.69573 13.9941 6.68329 13.4848 6.68329C11.845 6.68329 11.2115 7.30441 11.2115 8.91929V10H14.4778L13.9167 13.0558H11.2115V19.9268C16.1629 19.3287 20 15.1127 20 10Z" fill="#0866FF"></path>
+															<path d="M13.9165 13.0558L14.4777 10H11.2113V8.91925C11.2113 7.30437 11.8448 6.68329 13.4846 6.68329C13.9939 6.68329 14.4038 6.69569 14.6398 6.72053V3.95041C14.1926 3.82617 13.0995 3.70193 12.466 3.70193C9.12441 3.70193 7.58405 5.27957 7.58405 8.68325V10H5.52197V13.0558H7.58405V19.7055C8.35777 19.8974 9.16677 20 9.99981 20C10.41 20 10.8141 19.9747 11.2113 19.9268V13.0558H13.9165Z" fill="white"></path>
+														</svg>
+													</button>
+													<button type="button" class="checkout__login-btn border-btn btn-sz-middle">
+														<svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+															<path d="M10 8.18164V12.0544H15.3818C15.1455 13.2998 14.4363 14.3544 13.3727 15.0635L16.6181 17.5817C18.509 15.8363 19.5999 13.2726 19.5999 10.2272C19.5999 9.51812 19.5363 8.83623 19.4181 8.18175L10 8.18164Z" fill="#4285F4"></path>
+															<path d="M4.39567 11.9033L3.66371 12.4636L1.07275 14.4818C2.7182 17.7454 6.09068 20 9.99974 20C12.6997 20 14.9633 19.1091 16.6179 17.5818L13.3724 15.0636C12.4815 15.6636 11.3451 16.0273 9.99974 16.0273C7.39976 16.0273 5.19073 14.2728 4.39976 11.9091L4.39567 11.9033Z" fill="#34A853"></path>
+															<path d="M1.07265 5.51807C0.390868 6.86347 0 8.38167 0 9.99982C0 11.618 0.390868 13.1362 1.07265 14.4816C1.07265 14.4906 4.39998 11.8998 4.39998 11.8998C4.19998 11.2998 4.08177 10.6634 4.08177 9.99972C4.08177 9.336 4.19998 8.69967 4.39998 8.09968L1.07265 5.51807Z" fill="#FBBC05"></path>
+															<path d="M9.99995 3.98182C11.4727 3.98182 12.7818 4.49089 13.8272 5.47272L16.6908 2.60912C14.9545 0.990971 12.7 0 9.99995 0C6.09089 0 2.7182 2.24545 1.07275 5.51819L4.39998 8.10001C5.19084 5.73635 7.39996 3.98182 9.99995 3.98182Z" fill="#EA4335"></path>
+														</svg>
+													</button>
+												</div>
+											</div>
+										</div>
+										<button type="button" class="checkout__next border-btn btn-sz-middle" data-form-step-next="">Обрати спосіб доставки</button>
+									</div>
+								</div>
+								<div class="checkout__step" data-form-step="" data-form-step-id="delivery" data-form-step-state="locked">
+									<div class="checkout__head">
+										<div class="checkout__head-info">
+											<div class="checkout__num">Крок 2</div>
+											<div class="checkout__subtitle">Спосіб доставки</div>
+											<div class="checkout__summary" data-form-step-summary="" hidden>
+												<div class="checkout__summary-item">Дніпро</div>
+												<div class="checkout__summary-item">Самовивіз “Нова пошта”</div>
+												<div class="checkout__summary-item">Відділення №8, бул. Незалежності, 8а</div>
+											</div>
+										</div>
+										<div class="checkout__actions">
+											<button type="button" class="checkout__edit border-btn btn-sz-middle" data-form-step-edit="" hidden>
+												<span>Редагувати</span>
+												<svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M11.6667 5L15 8.33333M2.5 17.5L3.15151 13.591C3.26464 12.9122 3.58706 12.2857 4.07367 11.7991L12.8891 2.98356C13.5338 2.33882 14.5792 2.33881 15.2239 2.98353L17.0165 4.77605C17.6612 5.42075 17.6612 6.46602 17.0165 7.11074L8.20099 15.9264C7.71438 16.413 7.08787 16.7354 6.40905 16.8485L2.5 17.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+												</svg>
+											</button>
+										</div>
+									</div>
+									<div class="checkout__content" data-form-step-content="" hidden>
+										<div class="checkout__address">
+											<div class="checkout__block">
+												<div class="checkout__label">Обреріть місто</div>
+												<div class="input-field">
+													<select data-fls-select="search" class="select-sz-middle" name="city">
+														<option value="" selected>Місто*</option>
+														<option value="1">Одеса</option>
+														<option value="2">Дніпро</option>
+														<option value="3">Київ</option>
+														<option value="4">Харків</option>
+													</select>
+												</div>
+											</div>
+											<div class="checkout__block">
+												<div class="checkout__label">Доставка</div>
+												<div class="checkout__delivery delivery-block" data-options-block="">
+													<div class="delivery-block__item" data-options-block-item="">
+														<label class="delivery-block__radio">
+															<input class="delivery-block__radio-input" checked type="radio" value="1" name="delivery" data-options-block-input="">
+															<span class="delivery-block__radio-label">
+																<span class="delivery-block__radio-body">
+																	<span class="delivery-block__radio-head">
+																		<span class="delivery-block__radio-title">Самовивіз з магазину “Мотозілла”, м. Дніпро</span>
+																		<span class="delivery-block__radio-price green-color">Безкоштовно</span>
+																	</span>
+																	<span class="delivery-block__radio-descr">Забрати сьогодні</span>
+																</span>
+															</span>
+														</label>
+													</div>
+													<div class="delivery-block__item" data-options-block-item="">
+														<label class="delivery-block__radio">
+															<input class="delivery-block__radio-input" type="radio" value="2" name="delivery" data-options-block-input="">
+															<span class="delivery-block__radio-label">
+																<span class="delivery-block__radio-body">
+																	<span class="delivery-block__radio-head">
+																		<span class="delivery-block__radio-title">Самовивіз “Нова пошта”</span>
+																		<span class="delivery-block__radio-price green-color">Безкоштовно</span>
+																	</span>
+																	<span class="delivery-block__radio-descr">Отримати 5 вересня</span>
+																</span>
+															</span>
+														</label>
+														<div class="delivery-block__content">
+															<div class="delivery-block__inputs">
+																<div class="input-field">
+																	<select data-fls-select="search" class="select-sz-middle" name="branch">
+																		<option value="" selected>Відділення*</option>
+																		<option value="1">Відділення N1</option>
+																		<option value="2">Відділення N2</option>
+																		<option value="3">Відділення N3</option>
+																		<option value="4">Відділення N4</option>
+																	</select>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="delivery-block__item" data-options-block-item="">
+														<label class="delivery-block__radio">
+															<input class="delivery-block__radio-input" type="radio" value="3" name="delivery" data-options-block-input="">
+															<span class="delivery-block__radio-label">
+																<span class="delivery-block__radio-body">
+																	<span class="delivery-block__radio-head">
+																		<span class="delivery-block__radio-title">Адресна доставка кур’эром “Нова пошта”</span>
+																		<span class="delivery-block__radio-price">200 грн</span>
+																	</span>
+																	<span class="delivery-block__radio-descr">Отримати 6 вересня</span>
+																</span>
+															</span>
+														</label>
+														<div class="delivery-block__content">
+															<div class="delivery-block__inputs">
+																<div class="input-field input-field--long">
+																	<input autocomplete="off" type="text" name="street" placeholder="Вулиця*" class="input-field__input input input-sz-middle">
+																</div>
+																<div class="input-field">
+																	<input autocomplete="off" type="text" name="house" placeholder="Будинок*" class="input-field__input input input-sz-middle" inputmode="numeric">
+																</div>
+																<div class="input-field">
+																	<input autocomplete="off" type="text" name="apartment" placeholder="Квартира*" class="input-field__input input input-sz-middle" inputmode="numeric">
+																</div>
+																<div class="input-field">
+																	<input autocomplete="off" type="text" name="floor" placeholder="Поверх*" class="input-field__input input input-sz-middle" inputmode="numeric">
+																</div>
+															</div>
+															<label data-fls-checkbox="" class="checkbox-form">
+																<input class="checkbox-form__input" type="checkbox" value="1" name="form[]" data-target-form="other">
+																<span class="checkbox-form__label">
+																	<span class="checkbox-form__text">У будинку є ліфт</span>
+																</span>
+															</label>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<button type="button" class="checkout__next border-btn btn-sz-middle" data-form-step-next="">Обрати спосіб оплати</button>
+									</div>
+								</div>
+								<div class="checkout__step" data-form-step="" data-form-step-id="payment" data-form-step-state="locked">
+									<div class="checkout__head">
+										<div class="checkout__head-info">
+											<div class="checkout__num">Крок 3</div>
+											<div class="checkout__subtitle">Спосіб оплати</div>
+											<div class="checkout__summary" data-form-step-summary="" hidden>
+												<div class="checkout__summary-item">Оплата при отриманні</div>
+											</div>
+										</div>
+										<div class="checkout__actions">
+											<button type="button" class="checkout__edit border-btn btn-sz-middle" data-form-step-edit="" hidden>
+												<span>Редагувати</span>
+												<svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M11.6667 5L15 8.33333M2.5 17.5L3.15151 13.591C3.26464 12.9122 3.58706 12.2857 4.07367 11.7991L12.8891 2.98356C13.5338 2.33882 14.5792 2.33881 15.2239 2.98353L17.0165 4.77605C17.6612 5.42075 17.6612 6.46602 17.0165 7.11074L8.20099 15.9264C7.71438 16.413 7.08787 16.7354 6.40905 16.8485L2.5 17.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+												</svg>
+											</button>
+										</div>
+									</div>
+									<div class="checkout__content" data-form-step-content="" hidden>
+										<div class="checkout__payment payment-block" data-options-block="">
+											<div class="payment-block__item" data-options-block-item="">
+												<label class="payment-block__radio">
+													<input class="payment-block__radio-input" checked type="radio" value="1" name="payment" data-options-block-input="">
+													<span class="payment-block__radio-label">
+														<span class="payment-block__radio-icon">
+															<svg width="36" height="36" viewbox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+																<path d="M27.75 17.2324V17.2474M8.25 18.7324V18.7474M21.75 18C21.75 20.0711 20.0711 21.75 18 21.75C15.9289 21.75 14.25 20.0711 14.25 18C14.25 15.9289 15.9289 14.25 18 14.25C20.0711 14.25 21.75 15.9289 21.75 18ZM31.6993 8.51449C30.2855 8.07631 27.7191 7.5 24 7.5C17.1313 7.5 15.295 10.0162 5.81697 8.13541C4.38118 7.8505 3 8.91796 3 10.3817V25.4073C3 26.4398 3.70897 27.3465 4.7172 27.5688C15.1643 29.8726 16.8736 27.1641 24 27.1641C26.266 27.1641 28.1041 27.378 29.5143 27.6443C31.1579 27.9547 33 26.6961 33 25.0235V10.3906C33 9.53834 32.5134 8.76678 31.6993 8.51449Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+															</svg>
+														</span>
+														<span class="payment-block__radio-body">
+															<span class="payment-block__radio-title">Оплата при отриманні</span>
+															<span class="payment-block__radio-descr">Ви можете разрахуватися готівкою або картою</span>
+														</span>
+													</span>
+												</label>
+											</div>
+											<div class="payment-block__item" data-options-block-item="">
+												<label class="payment-block__radio">
+													<input class="payment-block__radio-input" type="radio" value="2" name="payment" data-options-block-input="">
+													<span class="payment-block__radio-label">
+														<span class="payment-block__radio-icon">
+															<svg width="36" height="36" viewbox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+																<path d="M5.41118 28.5137L6.03096 27.7289L5.41118 28.5137ZM4.5792 27.7306L5.32562 27.0652H5.32562L4.5792 27.7306ZM31.4208 27.7306L30.6744 27.0652H30.6744L31.4208 27.7306ZM30.5888 28.5137L29.969 27.7289L30.5888 28.5137ZM30.5888 7.48631L29.969 8.27109L30.5888 7.48631ZM31.4208 8.26935L30.6744 8.93482H30.6744L31.4208 8.26935ZM5.41118 7.48631L6.03096 8.27109L5.41118 7.48631ZM4.5792 8.26935L5.32562 8.93482H5.32562L4.5792 8.26935ZM15 23C14.4477 23 14 23.4477 14 24C14 24.5523 14.4477 25 15 25V24V23ZM17.25 25C17.8023 25 18.25 24.5523 18.25 24C18.25 23.4477 17.8023 23 17.25 23V24V25ZM21.75 23C21.1977 23 20.75 23.4477 20.75 24C20.75 24.5523 21.1977 25 21.75 25V24V23ZM27 25C27.5523 25 28 24.5523 28 24C28 23.4477 27.5523 23 27 23V24V25ZM15.75 6V7H20.25V6V5H15.75V6ZM20.25 30V29H15.75V30V31H20.25V30ZM15.75 30V29C12.9076 29 10.8599 28.9985 9.2844 28.8205C7.72726 28.6446 6.76391 28.3078 6.03096 27.7289L5.41118 28.5137L4.79141 29.2985C5.94047 30.2059 7.3276 30.6122 9.0599 30.8079C10.7738 31.0015 12.9545 31 15.75 31V30ZM3 18H2C2 20.6267 1.9981 22.6915 2.20543 24.3174C2.41629 25.971 2.85681 27.3014 3.83278 28.3961L4.5792 27.7306L5.32562 27.0652C4.72239 26.3886 4.3733 25.5068 4.18937 24.0644C4.0019 22.5944 4 20.6795 4 18H3ZM5.41118 28.5137L6.03096 27.7289C5.77506 27.5268 5.53913 27.3047 5.32562 27.0652L4.5792 27.7306L3.83278 28.3961C4.12443 28.7233 4.44527 29.0251 4.79141 29.2985L5.41118 28.5137ZM33 18H32C32 20.6795 31.9981 22.5944 31.8106 24.0644C31.6267 25.5068 31.2776 26.3886 30.6744 27.0652L31.4208 27.7306L32.1672 28.3961C33.1432 27.3014 33.5837 25.971 33.7946 24.3174C34.0019 22.6915 34 20.6267 34 18H33ZM20.25 30V31C23.0455 31 25.2262 31.0015 26.9401 30.8079C28.6724 30.6122 30.0595 30.2059 31.2086 29.2985L30.5888 28.5137L29.969 27.7289C29.2361 28.3078 28.2727 28.6446 26.7156 28.8205C25.1401 28.9985 23.0924 29 20.25 29V30ZM31.4208 27.7306L30.6744 27.0652C30.4609 27.3047 30.2249 27.5268 29.969 27.7289L30.5888 28.5137L31.2086 29.2985C31.5547 29.0251 31.8756 28.7233 32.1672 28.3961L31.4208 27.7306ZM20.25 6V7C23.0924 7 25.1401 7.0015 26.7156 7.17947C28.2727 7.35536 29.2361 7.69224 29.969 8.27109L30.5888 7.48631L31.2086 6.70153C30.0595 5.79407 28.6724 5.38779 26.9401 5.19211C25.2262 4.9985 23.0455 5 20.25 5V6ZM33 18H34C34 15.3733 34.0019 13.3085 33.7946 11.6826C33.5837 10.029 33.1432 8.69857 32.1672 7.60388L31.4208 8.26935L30.6744 8.93482C31.2776 9.61144 31.6267 10.4932 31.8106 11.9356C31.9981 13.4056 32 15.3205 32 18H33ZM30.5888 7.48631L29.969 8.27109C30.2249 8.47318 30.4609 8.69534 30.6744 8.93482L31.4208 8.26935L32.1672 7.60388C31.8756 7.27674 31.5547 6.97488 31.2086 6.70152L30.5888 7.48631ZM15.75 6V5C12.9545 5 10.7738 4.9985 9.0599 5.19211C7.3276 5.38779 5.94047 5.79407 4.79141 6.70153L5.41118 7.48631L6.03096 8.27109C6.76391 7.69224 7.72726 7.35536 9.2844 7.17947C10.8599 7.0015 12.9076 7 15.75 7V6ZM3 18H4C4 15.3205 4.0019 13.4056 4.18937 11.9356C4.37331 10.4932 4.72239 9.61144 5.32562 8.93482L4.5792 8.26935L3.83278 7.60388C2.85681 8.69857 2.41629 10.029 2.20543 11.6826C1.9981 13.3085 2 15.3733 2 18H3ZM5.41118 7.48631L4.79141 6.70152C4.44527 6.97488 4.12444 7.27674 3.83278 7.60388L4.5792 8.26935L5.32562 8.93482C5.53913 8.69534 5.77506 8.47318 6.03096 8.27109L5.41118 7.48631ZM15 24V25H17.25V24V23H15V24ZM21.75 24V25H27V24V23H21.75V24ZM3 13.5V14.5H33V13.5V12.5H3V13.5Z" fill="currentColor"></path>
+															</svg>
+														</span>
+														<span class="payment-block__radio-body">
+															<span class="payment-block__radio-title">Оплата онлайн</span>
+															<span class="payment-block__radio-descr">Оплата онлайн картою</span>
+														</span>
+													</span>
+												</label>
+												<div class="payment-block__content">
+													<div class="payment-block__options">
+														<label class="payment-block__options-item">
+															<input class="payment-block__options-input" checked type="radio" value="1" name="payment-card">
+															<span class="payment-block__options-label">
+																<span class="payment-block__options-icon">
+																	<img src="./assets/img/icons/card-online.svg" width="24" height="24" alt="Image" loading="lazy">
+																</span>
+																<span class="payment-block__options-text">Онлайн-оплата карткою Visa, Mastercard - LiqPay</span>
+															</span>
+														</label>
+														<label class="payment-block__options-item">
+															<input class="payment-block__options-input" type="radio" value="2" name="payment-card">
+															<span class="payment-block__options-label">
+																<span class="payment-block__options-icon">
+																	<img width="24" height="24" alt="Image" loading="lazy" src="./assets/img/icons/Monobank.webp">
+																</span>
+																<span class="payment-block__options-text">Онлайн-оплата карткою Visa, Mastercard - Monobank</span>
+															</span>
+														</label>
+													</div>
+												</div>
+											</div>
+											<div class="payment-block__item" data-options-block-item="">
+												<label class="payment-block__radio">
+													<input class="payment-block__radio-input" type="radio" value="3" name="payment" data-options-block-input="">
+													<span class="payment-block__radio-label">
+														<span class="payment-block__radio-icon">
+															<svg width="36" height="36" viewbox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+																<path d="M11.2929 23.2929C10.9024 23.6834 10.9024 24.3166 11.2929 24.7071C11.6834 25.0976 12.3166 25.0976 12.7071 24.7071L12 24L11.2929 23.2929ZM24.7071 12.7071C25.0976 12.3166 25.0976 11.6834 24.7071 11.2929C24.3166 10.9024 23.6834 10.9024 23.2929 11.2929L24 12L24.7071 12.7071ZM18 32.25V31.25C14.613 31.25 12.1733 31.2479 10.3152 30.9981C8.48584 30.7521 7.37063 30.2827 6.54397 29.456L5.83686 30.1631L5.12976 30.8702C6.38996 32.1304 7.99757 32.7045 10.0487 32.9802C12.071 33.2521 14.6695 33.25 18 33.25V32.25ZM3.75 18H2.75C2.75 21.3305 2.74788 23.929 3.01978 25.9513C3.29554 28.0024 3.86956 29.61 5.12976 30.8702L5.83686 30.1631L6.54397 29.456C5.71731 28.6294 5.24789 27.5142 5.00194 25.6848C4.75212 23.8267 4.75 21.387 4.75 18H3.75ZM32.25 18H31.25C31.25 21.387 31.2479 23.8267 30.9981 25.6848C30.7521 27.5142 30.2827 28.6294 29.456 29.456L30.1631 30.1631L30.8702 30.8702C32.1304 29.61 32.7045 28.0024 32.9802 25.9513C33.2521 23.929 33.25 21.3305 33.25 18H32.25ZM18 32.25V33.25C21.3305 33.25 23.929 33.2521 25.9513 32.9802C28.0024 32.7045 29.61 32.1304 30.8702 30.8702L30.1631 30.1631L29.456 29.456C28.6294 30.2827 27.5142 30.7521 25.6848 30.9981C23.8267 31.2479 21.387 31.25 18 31.25V32.25ZM18 3.75V4.75C21.387 4.75 23.8267 4.75212 25.6848 5.00194C27.5142 5.24789 28.6294 5.71731 29.456 6.54397L30.1631 5.83686L30.8702 5.12976C29.61 3.86956 28.0024 3.29554 25.9513 3.01978C23.929 2.74788 21.3305 2.75 18 2.75V3.75ZM32.25 18H33.25C33.25 14.6695 33.2521 12.071 32.9802 10.0487C32.7045 7.99757 32.1304 6.38996 30.8702 5.12976L30.1631 5.83686L29.456 6.54397C30.2827 7.37063 30.7521 8.48584 30.9981 10.3152C31.2479 12.1733 31.25 14.613 31.25 18H32.25ZM18 3.75V2.75C14.6695 2.75 12.071 2.74788 10.0487 3.01978C7.99757 3.29554 6.38996 3.86956 5.12976 5.12976L5.83686 5.83686L6.54397 6.54397C7.37063 5.71731 8.48584 5.24789 10.3152 5.00194C12.1733 4.75212 14.613 4.75 18 4.75V3.75ZM3.75 18H4.75C4.75 14.613 4.75212 12.1733 5.00194 10.3152C5.24789 8.48584 5.71731 7.37063 6.54397 6.54397L5.83686 5.83686L5.12976 5.12976C3.86956 6.38996 3.29554 7.99757 3.01978 10.0487C2.74788 12.071 2.75 14.6695 2.75 18H3.75ZM12 24L12.7071 24.7071L24.7071 12.7071L24 12L23.2929 11.2929L11.2929 23.2929L12 24ZM15 13.5L14 13.5C14 13.7761 13.7761 14 13.5 14L13.5 15V16C14.8807 16 16 14.8807 16 13.5H15ZM13.5 15L13.5 14C13.2239 14 13 13.7761 13 13.5H12H11C11 14.8807 12.1193 16 13.5 16V15ZM12 13.5H13C13 13.2239 13.2239 13 13.5 13V12V11C12.1193 11 11 12.1193 11 13.5H12ZM13.5 12V13C13.7761 13 14 13.2239 14 13.5L15 13.5H16C16 12.1193 14.8807 11 13.5 11V12ZM24 22.2426H23C23 22.5187 22.7761 22.7426 22.5 22.7426V23.7426V24.7426C23.8807 24.7426 25 23.6233 25 22.2426H24ZM22.5 23.7426V22.7426C22.2239 22.7426 22 22.5187 22 22.2426H21H20C20 23.6233 21.1193 24.7426 22.5 24.7426V23.7426ZM21 22.2426H22C22 21.9664 22.2239 21.7426 22.5 21.7426V20.7426V19.7426C21.1193 19.7426 20 20.8618 20 22.2426H21ZM22.5 20.7426V21.7426C22.7761 21.7426 23 21.9664 23 22.2426H24H25C25 20.8618 23.8807 19.7426 22.5 19.7426V20.7426Z" fill="currentColor"></path>
+															</svg>
+														</span>
+														<span class="payment-block__radio-body">
+															<span class="payment-block__radio-title">Оплата в кредит</span>
+															<span class="payment-block__radio-descr">Кредит від Приват-банку або інщі банки</span>
+														</span>
+													</span>
+												</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="checkout__step">
+									<div class="checkout__inner">
+										<div class="checkout__spollers">
+											<details class="checkout__spollers-item">
+												<summary class="checkout__spollers-head">
+													<span class="checkout__spollers-info">
+														<span class="checkout__spollers-title">Додати коментар</span>
+													</span>
+												</summary>
+												<div class="checkout__spollers-body">
+													<textarea class="checkout__spollers-input input" name="message" placeholder="Особливості адреси доставки чи будь-яка додаткова інформація"></textarea>
+												</div>
+											</details>
+										</div>
+										<label data-fls-checkbox="" class="checkbox-form">
+											<input class="checkbox-form__input" type="checkbox" value="1" name="form[]">
+											<span class="checkbox-form__label">
+												<span class="checkbox-form__text">Не дзвоніть мені, я впевнений в замовленні</span>
+											</span>
+										</label>
+										<div class="checkout__checkbox-info">
+											Оформлення заявки без дзвінка менеджера. Інформацію про статус замовлення ви отримаєте через
+                            SMS
+                            і на вашу електронну пошту
+										</div>
+									</div>
+								</div>
+							</div>
+							<aside class="checkout__aside aside-checkout">
+								<div class="aside-checkout__block">
+									<div class="aside-checkout__head">
+										<div class="aside-checkout__title">Разом</div>
+									</div>
+									<div class="aside-checkout__body">
+										<div class="aside-checkout__rows">
+											<div class="aside-checkout__row">
+												<div class="aside-checkout__label">3 товари на сумму</div>
+												<div class="aside-checkout__value">
+													<span>12 499</span>
+													грн
+												</div>
+											</div>
+											<div class="aside-checkout__row">
+												<div class="aside-checkout__label">Знижка</div>
+												<div class="aside-checkout__value">
+													<span>-299</span>
+													грн
+												</div>
+											</div>
+											<div class="aside-checkout__info">
+												<svg width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M8.00016 10.6667V7.66668M8.00016 5.34116V5.33449M14.6668 8.00001C14.6668 11.6819 11.6821 14.6667 8.00016 14.6667C4.31826 14.6667 1.3335 11.6819 1.3335 8.00001C1.3335 4.31811 4.31826 1.33334 8.00016 1.33334C11.6821 1.33334 14.6668 4.31811 14.6668 8.00001Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+												</svg>
+												<div class="aside-checkout__info-text">
+													За покупку буде нараховано
+													<span>260 кешбеку</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="aside-checkout__bottom">
+										<div class="aside-checkout__total">
+											<div class="aside-checkout__label">До сплати</div>
+											<div class="aside-checkout__value">
+												<span>12 200</span>
+												грн
+											</div>
+										</div>
+										<button type="submit" class="aside-checkout__btn green-btn btn-sz-middle" disabled>Оформити замовлення</button>
+										<div class="aside-checkout__text">
+											Підтверджую замовлення, я погоджуюсь з
+											<a href="#">Правилами угоди користувача</a>
+										</div>
+									</div>
+								</div>
+								<div class="aside-checkout__block">
+									<div class="aside-checkout__head">
+										<div class="aside-checkout__title">Ваше замовлення</div>
+										<button data-fls-popup-link="popup-go-cart" type="button" class="aside-checkout__edit">
+											<svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path d="M11.6667 5L15 8.33333M2.5 17.5L3.15151 13.591C3.26464 12.9122 3.58706 12.2857 4.07367 11.7991L12.8891 2.98356C13.5338 2.33882 14.5792 2.33881 15.2239 2.98353L17.0165 4.77605C17.6612 5.42075 17.6612 6.46602 17.0165 7.11074L8.20099 15.9264C7.71438 16.413 7.08787 16.7354 6.40905 16.8485L2.5 17.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+											</svg>
+										</button>
+									</div>
+									<div data-fls-showmore="" class="aside-checkout__showmore">
+										<div data-fls-showmore-content="78" data-fls-showmore-max="336" class="aside-checkout__products">
+											<div class="aside-checkout__product">
+												<div class="aside-checkout__product-img">
+													<img width="60" height="60" alt="Image" loading="lazy" src="./assets/img/products/564994.400.webp">
+												</div>
+												<div class="aside-checkout__product-body">
+													<div class="aside-checkout__product-title">Колокол зчеплення закритий із зіркою 25H</div>
+													<div class="aside-checkout__product-info">
+														<div class="aside-checkout__product-price">15 499 грн / 4шт</div>
+														<div class="aside-checkout__product-total">15 499 грн</div>
+													</div>
+												</div>
+											</div>
+											<div class="aside-checkout__product">
+												<div class="aside-checkout__product-img">
+													<img width="60" height="60" alt="Image" loading="lazy" src="./assets/img/products/564994.400.webp">
+												</div>
+												<div class="aside-checkout__product-body">
+													<div class="aside-checkout__product-title">Колокол зчеплення закритий із зіркою 25H</div>
+													<div class="aside-checkout__product-info">
+														<div class="aside-checkout__product-price">15 499 грн / 4шт</div>
+														<div class="aside-checkout__product-total">15 499 грн</div>
+													</div>
+												</div>
+											</div>
+											<div class="aside-checkout__product">
+												<div class="aside-checkout__product-img">
+													<img width="60" height="60" alt="Image" loading="lazy" src="./assets/img/products/564994.400.webp">
+												</div>
+												<div class="aside-checkout__product-body">
+													<div class="aside-checkout__product-title">Колокол зчеплення закритий із зіркою 25H</div>
+													<div class="aside-checkout__product-info">
+														<div class="aside-checkout__product-price">15 499 грн / 4шт</div>
+														<div class="aside-checkout__product-total">15 499 грн</div>
+													</div>
+												</div>
+											</div>
+											<div class="aside-checkout__product">
+												<div class="aside-checkout__product-img">
+													<img width="60" height="60" alt="Image" loading="lazy" src="./assets/img/products/564994.400.webp">
+												</div>
+												<div class="aside-checkout__product-body">
+													<div class="aside-checkout__product-title">Колокол зчеплення закритий із зіркою 25H</div>
+													<div class="aside-checkout__product-info">
+														<div class="aside-checkout__product-price">15 499 грн / 4шт</div>
+														<div class="aside-checkout__product-total">15 499 грн</div>
+													</div>
+												</div>
+											</div>
+											<div class="aside-checkout__product">
+												<div class="aside-checkout__product-img">
+													<img width="60" height="60" alt="Image" loading="lazy" src="./assets/img/products/564994.400.webp">
+												</div>
+												<div class="aside-checkout__product-body">
+													<div class="aside-checkout__product-title">Колокол зчеплення закритий із зіркою 25H</div>
+													<div class="aside-checkout__product-info">
+														<div class="aside-checkout__product-price">15 499 грн / 4шт</div>
+														<div class="aside-checkout__product-total">15 499 грн</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<button hidden data-fls-showmore-button="" type="button" class="aside-checkout__show">
+											<span>Всі товари</span>
+											<span>Згорнути</span>
+										</button>
+									</div>
+								</div>
+								<div class="aside-checkout__block">
+									<details class="aside-checkout__promocode promocode-block">
+										<summary class="promocode-block__head">Додати промокод</summary>
+										<div class="promocode-block__form">
+											<div class="input-field">
+												<input autocomplete="off" type="text" name="promocode" placeholder="Введіть промокод" class="input-field__input input input-sz-middle is-error">
+												<div class="form-error">
+													Використовуйте компонент Field, якщо хочете використовувати Input з Label та
+                                    Description
+												</div>
+											</div>
+											<button type="button" class="promocode-block__btn blue-btn btn-sz-middle" disabled>Використати</button>
+										</div>
+									</details>
+								</div>
+							</aside>
+						</div>
+					</div>
+				</section>
+			</main>
+		</div>
+		<div data-fls-popup="popup-go-cart" aria-hidden="true" class="popup popup--options">
+			<div data-fls-popup-wrapper="" class="popup__wrapper">
+				<div data-fls-popup-body="" class="popup__body">
+					<div data-fls-popup-content="" class="popup__content">
+						<div class="popup__options options-popup">
+							<div class="options-popup__img">
+								<img src="./assets/img/popup/cart-red.svg" width="113" height="113" alt="Image" loading="lazy">
+							</div>
+							<div class="options-popup__info">
+								<div class="options-popup__title">Хочете призупинити оформлення замовлення?</div>
+								<div class="options-popup__text">Це може призвести до втрати поточного прогресу замовлення</div>
+							</div>
+							<div class="options-popup__btns">
+								<a href="/cart.html" class="options-popup__btn border-btn btn-sz-middle">До кошику</a>
+								<button data-fls-popup-close="" type="button" class="options-popup__btn green-btn btn-sz-middle">Залишитися</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<ul id="fls-dev-panel">
+			<li>
+				<a href="warranty-and-returns.html">warranty-and-returns</a>
+			</li>
+			<li>
+				<a href="user.html">user</a>
+			</li>
+			<li>
+				<a href="user-reviews.html">user-reviews</a>
+			</li>
+			<li>
+				<a href="user-reviews-empty.html">user-reviews-empty</a>
+			</li>
+			<li>
+				<a href="thankyou.html">thankyou</a>
+			</li>
+			<li>
+				<a href="textpage.html">textpage</a>
+			</li>
+			<li>
+				<a href="success-page.html">success-page</a>
+			</li>
+			<li>
+				<a href="showcase.html">showcase</a>
+			</li>
+			<li>
+				<a href="search-results.html">search-results</a>
+			</li>
+			<li>
+				<a href="sales.html">sales</a>
+			</li>
+			<li>
+				<a href="sale-page.html">sale-page</a>
+			</li>
+			<li>
+				<a href="promoution-and-cashback.html">promoution-and-cashback</a>
+			</li>
+			<li>
+				<a href="product.html">product</a>
+			</li>
+			<li>
+				<a href="no-page.html">no-page</a>
+			</li>
+			<li>
+				<a href="my-orders.html">my-orders</a>
+			</li>
+			<li>
+				<a href="my-orders-empty.html">my-orders-empty</a>
+			</li>
+			<li>
+				<a href="my-orders-detail.html">my-orders-detail</a>
+			</li>
+			<li>
+				<a href="models.html">models</a>
+			</li>
+			<li>
+				<a href="model-detail.html">model-detail</a>
+			</li>
+			<li>
+				<a href="index.html">index</a>
+			</li>
+			<li>
+				<a href="history-view.html">history-view</a>
+			</li>
+			<li>
+				<a href="history-view-empty.html">history-view-empty</a>
+			</li>
+			<li>
+				<a href="history-bonus.html">history-bonus</a>
+			</li>
+			<li>
+				<a href="history-bonus-empty.html">history-bonus-empty</a>
+			</li>
+			<li>
+				<a href="help-center.html">help-center</a>
+			</li>
+			<li>
+				<a href="help-center-2.html">help-center-2</a>
+			</li>
+			<li>
+				<a href="favorites.html">favorites</a>
+			</li>
+			<li>
+				<a href="favorites-empty.html">favorites-empty</a>
+			</li>
+			<li>
+				<a href="delivery-and-payment.html">delivery-and-payment</a>
+			</li>
+			<li>
+				<a href="contacts.html">contacts</a>
+			</li>
+			<li>
+				<a href="checkouts.html">checkouts</a>
+			</li>
+			<li>
+				<a href="checkouts-user.html">checkouts-user</a>
+			</li>
+			<li>
+				<a href="catalogs.html">catalogs</a>
+			</li>
+			<li>
+				<a href="catalogs-cards-row.html">catalogs-cards-row</a>
+			</li>
+			<li>
+				<a href="cart.html">cart</a>
+			</li>
+			<li>
+				<a href="cart-min-order.html">cart-min-order</a>
+			</li>
+			<li>
+				<a href="cart-empty.html">cart-empty</a>
+			</li>
+			<li>
+				<a href="blog.html">blog</a>
+			</li>
+			<li>
+				<a href="article.html">article</a>
+			</li>
+			<li>
+				<a href="all-components.html">all-components</a>
+			</li>
+			<li>
+				<a href="about.html">about</a>
+			</li>
+		</ul>
+		<style>
+			#fls-dev-panel{
+				position: fixed;
+				left: 10px;
+				padding: 15px 25px 15px 15px;
+				border-radius: 0 10px 10px 0;
+				top: 10%;
+				color: #ffffff;
+				background-color: rgba(51, 51, 51, 0.5);
+				transform: translate(-100%, 0px);
+				max-height: 80svh;
+				overflow: auto;
+				transition: all 300ms;
+				z-index: 9999;
+				font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+			}
+			#fls-dev-panel li{
+				list-style:none;
+			}
+			#fls-dev-panel hr{
+				border-bottom: 1px solid;
+			}
+			#fls-dev-panel:hover{
+				left: 0px;
+				transform: translate(0, 0);
+			}
+			#fls-dev-panel a{
+				text-decoration: none;
+				color: inherit;
+			}
+			#fls-dev-panel a:hover {
+				text-decoration: underline;
+			}
+			#fls-dev-panel li:not(:last-child) {
+				margin-bottom: 10px;
+			}
+		</style>
+		<script type="module" crossorigin="" src="./js/vendor-orchidjs-unicode-variants.min.js?v=1790864318309"></script>
+		<script type="module" crossorigin="" src="./js/vendor-orchidjs-sifter.min.js?v=1790864318309"></script>
+		<script type="module" crossorigin="" src="./js/vendor-popperjs-core.min.js?v=1790864318309"></script>
+		<script type="module" crossorigin="" src="./js/common.min.js?v=1790864318309"></script>
+		<script type="module" crossorigin="" src="./js/app.min.js?v=1790864318309"></script>
+		<script type="module" crossorigin="" src="./js/main.min.js?v=1790864318309"></script>
+		<script type="module" crossorigin="" src="./js/tom-select.min.js?v=1790864318309"></script>
+		<script type="module" crossorigin="" src="./js/select.min.js?v=1790864318309"></script>
+		<script type="module" crossorigin="" src="./js/showmore.min.js?v=1790864318309"></script>
+		<script type="module" crossorigin="" src="./js/popup.min.js?v=1790864318309"></script>
+		<script type="module" crossorigin="" src="./js/inputmask.min.js?v=1790864318309"></script>
+		<script type="module" crossorigin="" src="./js/mask.min.js?v=1790864318309"></script>
+		<script type="module" crossorigin="" src="./js/header.min.js?v=1790864318309"></script>
+		<script type="module" crossorigin="" src="./js/initFormSteps.min.js?v=1790864318309"></script>
+		<script type="module" crossorigin="" src="./js/initFormUserState.min.js?v=1790864318309"></script>
+		<script type="module" crossorigin="" src="./js/checkout.min.js?v=1790864318309"></script>
+		<script type="module" crossorigin="" src="./js/tippy.min.js?v=1790864318309"></script>
+	</body>
+</html>

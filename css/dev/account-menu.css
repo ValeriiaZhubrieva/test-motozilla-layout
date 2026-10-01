@@ -1,0 +1,264 @@
+@charset "UTF-8";
+/* =========================================================
+Компонент: стан «користувач увійшов» у шапці (account menu)
+Чип користувача + випадаюче меню кабінету. Розмітку інжектить
+js/pages/account-menu.js. Підключати ПІСЛЯ app.css.
+Палітра: зелений #00a046, темний #1a141f, сірий #6a6b81.
+========================================================= */
+/* атрибут hidden має перемагати display:flex з app.css */
+.header__user[hidden],
+.header__action[hidden],
+.mob-menu__login[hidden],
+.mob-menu__account[hidden] {
+  display: none;
+}
+
+/* ---------- чип користувача в шапці ---------- */
+.header__user {
+  position: relative;
+  display: flex;
+  align-items: center;
+  max-width: 135px;
+}
+
+.header__user-btn {
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 48px;
+  padding: 6px 10px 6px 6px;
+  border-radius: 99px;
+  background: #f4f4f4;
+  transition: background 0.2s;
+}
+
+.header__user-btn:hover {
+  background: #ededed;
+}
+
+.header__user-avatar {
+  flex: 0 0 auto;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #00a046;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.header__user-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.header__user-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a141f;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.header__user-arrow {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  color: #6a6b81;
+  transition: transform 0.2s;
+}
+
+.header__user-btn[aria-expanded=true] .header__user-arrow {
+  transform: rotate(180deg);
+}
+
+/* ---------- випадаюче меню ---------- */
+.account-drop {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  z-index: 70;
+  width: 300px;
+  padding: 8px;
+  border-radius: 16px;
+  overflow: hidden auto;
+  max-height: calc(var(--viewport-height-s) - var(--top-position));
+  background: #fff;
+  box-shadow: 0 20px 44px rgba(20, 20, 31, 0.16);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
+}
+.account-drop::-webkit-scrollbar {
+  width: 4px;
+  display: block;
+}
+.account-drop::-webkit-scrollbar-track {
+  background: #d2d5d9;
+  border-radius: 0px;
+  border: none;
+}
+.account-drop::-webkit-scrollbar-thumb {
+  background-color: #4e4f5f;
+  border-radius: 12px;
+  border: none;
+  cursor: grab;
+}
+.account-drop::-webkit-scrollbar-thumb:active {
+  cursor: grabbing;
+}
+.header__body.--fixed .account-drop {
+  max-height: calc(var(--viewport-height-s) - (var(--header-offset-height) + 12px));
+}
+
+.account-drop.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.account-drop__head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 12px 14px;
+}
+
+.account-drop__avatar {
+  flex: 0 0 auto;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+  background: #00a046;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.account-drop__id {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.account-drop__name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a141f;
+}
+
+.account-drop__phone {
+  font-size: 13px;
+  color: #6a6b81;
+}
+
+.account-drop__bonus {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 0 4px 8px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: #f3faf5;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a141f;
+  transition: background 0.2s;
+}
+
+.account-drop__bonus:hover {
+  background: #e7f6ed;
+}
+
+.account-drop__bonus b {
+  color: #00a046;
+  font-size: 16px;
+}
+
+.account-drop__menu {
+  display: flex;
+  flex-direction: column;
+  padding-top: 4px;
+  border-top: 1px solid #ededed;
+}
+
+.account-drop__link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 14px;
+  border-radius: 10px;
+  font-size: 15px;
+  color: #1a141f;
+  transition: background 0.15s;
+}
+
+.account-drop__link:hover {
+  background: #f5f6f7;
+}
+
+.account-drop__icon {
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  display: grid;
+  place-content: center;
+  color: #6a6b81;
+}
+.account-drop__icon img,
+.account-drop__icon svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.account-drop__count {
+  margin-left: auto;
+  min-width: 20px;
+  height: 20px;
+  padding: 3px 6px;
+  border-radius: 99px;
+  background: #e81602;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  display: grid;
+  place-content: center;
+}
+
+.account-drop__logout {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  margin-top: 4px;
+  padding: 11px 14px;
+  border-top: 1px solid #ededed;
+  border-radius: 0 0 10px 10px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #e2231a;
+  transition: background 0.15s;
+}
+.account-drop__logout svg,
+.account-drop__logout img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.account-drop__logout:hover {
+  background: #fdecea;
+}

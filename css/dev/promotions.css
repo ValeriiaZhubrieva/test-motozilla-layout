@@ -1,0 +1,223 @@
+.promotions-block {
+  margin-bottom: 80px;
+}
+.promotions-block__body {
+  display: flex;
+  gap: 16px;
+}
+.promotions-block__info {
+  max-width: 524px;
+  width: 100%;
+  border-radius: 8px;
+  padding: 40px;
+  background-color: #c2e5ff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.promotions-block__title {
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 125%;
+  text-align: center;
+  margin-bottom: 16px;
+}
+.promotions-block__subtitle {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 125%;
+  text-align: center;
+  margin-bottom: 24px;
+}
+.promotions-block__subtext {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  text-align: center;
+  margin-bottom: 12px;
+}
+.promotions-block__timer {
+  display: flex;
+  column-gap: 58px;
+}
+.promotions-block__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.promotions-block__item:not(:last-child) {
+  position: relative;
+}
+.promotions-block__item:not(:last-child)::after {
+  content: ":";
+  position: absolute;
+  top: 22px;
+  right: -32px;
+  font-weight: 700;
+  font-size: 32px;
+}
+.promotions-block__num {
+  border-radius: 16px;
+  padding: 6px;
+  background: #fff;
+  min-width: 71px;
+  min-height: 71px;
+  font-weight: 600;
+  font-size: 44px;
+  text-align: center;
+  line-height: 125%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.promotions-block__num.color-red {
+  color: #e80000;
+}
+.promotions-block__descr {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  text-align: center;
+}
+.promotions-block__content {
+  max-width: 740px;
+  width: 100%;
+  min-width: 0;
+  position: relative;
+}
+.promotions-block__arrows {
+  position: absolute;
+  top: 49%;
+  right: -20px;
+  left: -20px;
+  z-index: 5;
+  transform: translate(0px, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  pointer-events: none;
+}
+.promotions-block__arrows .swiper-button-prev,
+.promotions-block__arrows .swiper-button-next {
+  pointer-events: all;
+}
+.promotions-block__arrows .swiper-button-prev.swiper-button-disabled,
+.promotions-block__arrows .swiper-button-next.swiper-button-disabled {
+  visibility: hidden;
+}
+.promotions-block__slider {
+  min-width: 0;
+  border-radius: 8px;
+  background-color: #fff;
+  border: 1px solid #e1e1e1;
+  margin-bottom: 16px;
+}
+.promotions-block__slide {
+  background-color: #fff;
+}
+.promotions-block__slide.product-card {
+  border: none;
+  border-radius: 0;
+}
+.promotions-block__slide.product-card:not(:first-child) {
+  border-left: 1px solid #e1e1e1;
+}
+@media (max-width: 74.99875em) {
+  .promotions-block {
+    background-color: #c2e5ff;
+    padding: 16px 0;
+  }
+  .promotions-block__info {
+    padding: 0;
+    max-width: 320px;
+    background-color: transparent;
+  }
+  .promotions-block__timer {
+    column-gap: 46px;
+  }
+  .promotions-block__item {
+    gap: 6px;
+  }
+  .promotions-block__item:not(:last-child)::after {
+    top: 11px;
+    right: -26px;
+    font-weight: 600;
+    font-size: 24px;
+  }
+  .promotions-block__num {
+    border-radius: 8px;
+    font-size: 24px;
+    min-width: 50px;
+    min-height: 50px;
+  }
+  .promotions-block__descr {
+    font-size: 14px;
+  }
+  .promotions-block__content {
+    max-width: 100%;
+  }
+  .promotions-block__arrows {
+    display: none;
+  }
+}
+@media (max-width: 61.99875em) {
+  .promotions-block {
+    margin-bottom: 60px;
+  }
+  .promotions-block__info {
+    max-width: 280px;
+  }
+  .promotions-block__title {
+    margin-bottom: 32px;
+    font-size: 28px;
+  }
+  .promotions-block__subtitle {
+    display: none;
+  }
+  .promotions-block__content {
+    max-width: none;
+    width: auto;
+    margin-right: -24px;
+  }
+  .promotions-block__slider {
+    margin-bottom: 12px;
+    border-radius: 0;
+  }
+}
+@media (max-width: 43.74875em) {
+  .promotions-block__body {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .promotions-block__info {
+    align-self: center;
+    max-width: 100%;
+  }
+  .promotions-block__content {
+    margin-right: 0;
+  }
+  .promotions-block__slider {
+    margin-inline: -24px;
+  }
+}
+@media (max-width: 40.62375em) {
+  .promotions-block {
+    margin-bottom: 40px;
+  }
+  .promotions-block__title {
+    margin-bottom: 16px;
+  }
+}
+@media (max-width: 29.99875em) {
+  .promotions-block__slider {
+    margin-inline: -12px;
+  }
+}
+@media (min-width: 61.99875em) {
+  .promotions-block__title br {
+    display: none;
+  }
+}

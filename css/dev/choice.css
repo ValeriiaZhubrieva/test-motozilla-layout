@@ -1,0 +1,459 @@
+.choice-motozilla {
+  margin-bottom: 80px;
+}
+.choice-motozilla__body {
+  border: 1px solid #e1e1e1;
+  border-radius: 8px;
+  background-color: #fff;
+}
+.choice-motozilla__head {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-bottom: 1px solid #e1e1e1;
+}
+.choice-motozilla__top {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.choice-motozilla__logo {
+  max-width: 37px;
+  width: 100%;
+}
+.choice-motozilla__logo img {
+  width: 100%;
+  object-fit: contain;
+}
+.choice-motozilla__categories {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow: auto hidden;
+}
+.choice-motozilla__categories::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+  appearance: none;
+}
+.choice-motozilla__category {
+  white-space: nowrap;
+  border-radius: 100px;
+  border: 1px solid #d2d5d9;
+  background-color: #fafafa;
+  min-height: 36px;
+  padding: 6px 12px;
+  transition: border 0.3s, background 0.3s;
+}
+.choice-motozilla__category.is-active {
+  border-color: #1a141f;
+  background-color: #f4f4f4;
+}
+.choice-motozilla__sliders {
+  padding: 24px 40px 50px;
+  background-color: #c2e5ff;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  min-width: 0;
+}
+.choice-motozilla__sliders .swiper-pagination {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  bottom: 24px;
+}
+.choice-motozilla__arrows {
+  position: absolute;
+  top: 49%;
+  right: -20px;
+  left: -20px;
+  z-index: 5;
+  transform: translate(0px, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  pointer-events: none;
+}
+.choice-motozilla__arrows .swiper-button-prev,
+.choice-motozilla__arrows .swiper-button-next {
+  pointer-events: all;
+}
+.choice-motozilla__descr {
+  align-self: flex-start;
+  max-width: 40%;
+  width: 100%;
+}
+.choice-motozilla__item {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.choice-motozilla__subtitle {
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 125%;
+}
+.choice-motozilla__list {
+  padding-left: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.choice-motozilla__li {
+  list-style: disc;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 125%;
+}
+.choice-motozilla__cards {
+  min-width: 0;
+  max-width: 60%;
+  width: 100%;
+}
+.choice-motozilla-card {
+  border: 1px solid #e1e1e1;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.3s;
+  position: relative;
+}
+.choice-motozilla-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  top: 16px;
+  left: 16px;
+}
+.choice-motozilla-card__logo {
+  max-width: 23px;
+  width: 100%;
+}
+.choice-motozilla-card__logo img {
+  width: 100%;
+  object-fit: cover;
+}
+.choice-motozilla-card__inner {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+.choice-motozilla-card__img {
+  max-width: 140px;
+  display: grid;
+  place-content: center;
+  aspect-ratio: 1/1;
+}
+.choice-motozilla-card__img img {
+  max-width: 100%;
+  object-fit: cover;
+}
+.choice-motozilla-card__body {
+  flex: 1 1 auto;
+  display: flex;
+  gap: 16px;
+}
+.choice-motozilla-card__info {
+  max-width: 248px;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding-right: 16px;
+  border-right: 1px solid #e1e1e1;
+}
+.choice-motozilla-card__descr {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.choice-motozilla-card__title {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  transition: color 0.3s;
+}
+.choice-motozilla-card__rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.choice-motozilla-card__stars {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+}
+.choice-motozilla-card__stars img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+.choice-motozilla-card__reviews {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #6a6b81;
+  transition: color 0.3s;
+}
+.choice-motozilla-card__fav {
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-content: center;
+  color: #6a6b81;
+  transition: color 0.3s;
+}
+.choice-motozilla-card__fav svg {
+  width: 24px;
+  height: 24px;
+}
+.choice-motozilla-card__fav.is-active {
+  color: #e81602;
+}
+.choice-motozilla-card__fav.is-active path {
+  fill: #e81602;
+}
+.choice-motozilla-card__bottom {
+  max-width: 200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.choice-motozilla-card__content {
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.choice-motozilla-card__existence {
+  font-size: 12px;
+  text-transform: uppercase;
+}
+.choice-motozilla-card__existence.green-color {
+  color: #00a046;
+}
+.choice-motozilla-card__id {
+  font-weight: 600;
+  font-size: 14px;
+  color: #4e4f5f;
+}
+.choice-motozilla-card__detail {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.choice-motozilla-card__prices {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  line-height: 125%;
+}
+.choice-motozilla-card__oldprice {
+  font-weight: 500;
+  font-size: 14px;
+  color: #6a6b81;
+  text-decoration: line-through;
+}
+.choice-motozilla-card__price {
+  font-weight: 700;
+  font-size: 16px;
+}
+.choice-motozilla-card__price span {
+  font-size: 18px;
+}
+.choice-motozilla-card__price.red-color {
+  color: #e81602;
+}
+.choice-motozilla-card__buy {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-content: center;
+  padding: 5px;
+  border-radius: 8px;
+  background-color: #00a046;
+  color: #fff;
+  transition: background 0.3s;
+}
+.choice-motozilla-card__btn {
+  min-height: 36px;
+  background-color: #f4f4f4;
+  border: 1px solid #d2d5d9;
+  border-radius: 8px;
+  padding: 4px 12px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+@media (max-width: 83em) {
+  .choice-motozilla__categories {
+    margin-left: -24px;
+    margin-right: -24px;
+    padding: 0 24px;
+  }
+}
+@media (max-width: 74.99875em) {
+  .choice-motozilla-card {
+    padding: 12px;
+  }
+  .choice-motozilla-card__inner {
+    gap: 12px;
+  }
+  .choice-motozilla-card__body {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .choice-motozilla-card__info {
+    display: grid;
+    grid-template-columns: auto auto;
+    max-width: 100%;
+    border-right: none;
+    padding-right: 0;
+    align-items: center;
+  }
+  .choice-motozilla-card__descr {
+    display: contents;
+  }
+  .choice-motozilla-card__title {
+    grid-column: 1/-1;
+  }
+  .choice-motozilla-card__fav {
+    justify-self: end;
+  }
+  .choice-motozilla-card__bottom {
+    max-width: 100%;
+    display: contents;
+  }
+  .choice-motozilla-card__content {
+    order: -1;
+    margin-bottom: 0;
+  }
+}
+@media (max-width: 61.99875em) {
+  .choice-motozilla {
+    margin-bottom: 60px;
+  }
+  .choice-motozilla__body {
+    margin: 0 -24px;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+  .choice-motozilla__sliders {
+    padding: 24px;
+    gap: 16px;
+  }
+  .choice-motozilla__sliders .swiper-pagination {
+    position: static;
+  }
+  .choice-motozilla__arrows {
+    display: none;
+  }
+  .choice-motozilla__subtitle {
+    font-weight: 700;
+    font-size: 20px;
+  }
+  .choice-motozilla__slider {
+    margin-bottom: 8px;
+  }
+}
+@media (max-width: 47.99875em) {
+  .choice-motozilla__descr {
+    max-width: 50%;
+  }
+  .choice-motozilla__li {
+    font-size: 16px;
+  }
+  .choice-motozilla__cards {
+    max-width: 50%;
+  }
+  .choice-motozilla-card__inner {
+    gap: 8px;
+  }
+  .choice-motozilla-card__title {
+    font-size: 14px;
+    -webkit-line-clamp: 4;
+    min-height: 72px;
+  }
+  .choice-motozilla-card__rating {
+    font-size: 14px;
+  }
+  .choice-motozilla-card__detail {
+    padding-top: 4px;
+  }
+  .choice-motozilla-card__btn {
+    min-height: 26px;
+    padding: 2px 12px;
+  }
+}
+@media (max-width: 40.62375em) {
+  .choice-motozilla {
+    margin-bottom: 40px;
+  }
+  .choice-motozilla__sliders {
+    padding: 16px 24px;
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+  .choice-motozilla__descr {
+    max-width: 100%;
+  }
+  .choice-motozilla__cards {
+    max-width: 100%;
+  }
+}
+@media (max-width: 29.99875em) {
+  .choice-motozilla__body {
+    margin: 0 -12px;
+  }
+  .choice-motozilla__head {
+    padding: 16px 12px;
+  }
+  .choice-motozilla__categories {
+    margin-left: -12px;
+    margin-right: -12px;
+    padding: 0 12px;
+  }
+  .choice-motozilla__sliders {
+    padding: 16px 12px;
+  }
+}
+@media (any-hover: hover) {
+  .choice-motozilla__category:hover {
+    border-color: #1a141f;
+    background-color: #f4f4f4;
+  }
+  .choice-motozilla-card:hover {
+    box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.1);
+  }
+  .choice-motozilla-card__title:hover {
+    color: #e81602;
+    text-decoration: underline;
+  }
+  .choice-motozilla-card__reviews:hover {
+    color: #005fc6;
+    text-decoration: underline;
+  }
+  .choice-motozilla-card__fav:hover {
+    color: #e81602;
+  }
+  .choice-motozilla-card__buy:hover {
+    background-color: #000e1f;
+  }
+  .choice-motozilla-card__btn:hover {
+    background-color: #d2d5d9;
+  }
+}

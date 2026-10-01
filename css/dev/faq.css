@@ -1,0 +1,17 @@
+.faq-block {
+  margin-bottom: 80px;
+}
+.product-block__inner .faq-block {
+  margin-bottom: 0;
+}
+.faq-block__title {
+  margin-bottom: 24px;
+}
+@media (max-width: 47.99875em) {
+  .faq-block {
+    margin-bottom: 40px;
+  }
+  .faq-block__title {
+    margin-bottom: 16px;
+  }
+}

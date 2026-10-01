@@ -1,0 +1,895 @@
+/* =========================================================
+    Компонент: широкий випадаючий пошук у шапці (mega search)
+    Самодостатній. Розмітку інжектить js/pages/search.js.
+    Палітра проекту: зелений #00a046, червоний #e81602,
+    темний #1a141f, помаранчевий стикер #fa871d.
+    Підключати ПІСЛЯ app.css на сторінках із .header__search.
+========================================================= */
+
+/* ---------- поле пошуку у шапці ---------- */
+.header__body .header__container {
+    position: relative;
+}
+
+.header__search {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.header__search.is-open {
+    z-index: 30;
+}
+
+.search__field {
+    position: relative;
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.header__search .header__search-input {
+    width: 100%;
+    padding: 12px 84px 12px 16px;
+    background-image: none;
+}
+
+.search__field:focus-within .header__search-input {
+    border-color: #00a046;
+}
+
+.search__tools {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.search__mic,
+.search__clear {
+    width: 30px;
+    height: 30px;
+    display: grid;
+    place-content: center;
+    border-radius: 8px;
+    color: #6b7280;
+    transition:
+        background 0.2s,
+        color 0.2s;
+}
+
+.search__mic svg,
+.search__clear svg {
+    width: 20px;
+    height: 20px;
+}
+
+.search__mic[hidden],
+.search__clear[hidden] {
+    display: none;
+}
+
+.search__mic:hover,
+.search__clear:hover {
+    background: #f1f2f4;
+    color: #1a141f;
+}
+
+.search__submit {
+    flex: 0 0 auto;
+    min-height: 44px;
+    padding: 10px 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 8px;
+    background-color: #00a046;
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1;
+    transition: background 0.2s;
+}
+
+.search__submit svg {
+    width: 20px;
+    height: 20px;
+}
+.search__submit.disabled,
+.search__submit[disabled] {
+    background-color: #e0e0e0;
+    color: #b0b0b0;
+}
+.search__submit.is-active {
+    background-color: #008a3c;
+}
+
+/* ---------- широка випадаюча панель ---------- */
+.search-drop {
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 0;
+    right: 0;
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px);
+    transition:
+        opacity 0.18s ease,
+        transform 0.18s ease,
+        visibility 0.18s;
+}
+
+.search-drop.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.search-drop__inner {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 24px 48px rgba(20, 20, 31, 0.16);
+    padding: 24px;
+    max-height: min(calc(var(--viewport-height-s, 80vh) - var(--top-position)), 740px);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.header__body.--fixed .search-drop__inner {
+    max-height: min(calc(var(--viewport-height-s, 80vh) - var(--header-offset-height)), 740px);
+}
+
+/* активний стан заповнює панель, скрол — усередині колонок */
+.search-drop__state:not([hidden]) {
+    flex: 1 1 auto;
+    min-height: 0;
+    max-height: 100%;
+}
+
+.search-drop__state[data-state="empty"]:not([hidden]) {
+    overflow-y: auto;
+}
+
+.search-drop__state[data-state="results"]:not([hidden]) {
+    display: flex;
+    flex-direction: column;
+}
+
+.search-drop__close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 2;
+    width: 36px;
+    height: 36px;
+    display: grid;
+    place-content: center;
+    border-radius: 50%;
+    background: #f1f2f4;
+    color: #1a141f;
+    transition: background 0.2s;
+}
+
+.search-drop__close svg {
+    width: 22px;
+    height: 22px;
+}
+
+.search-drop__close:hover {
+    background: #e7e9ec;
+}
+
+/* ========== СТАН 2: мега-результати ========== */
+.search-mega {
+    display: grid;
+    grid-template-columns: 280px minmax(0, 1fr);
+    gap: 8px 28px;
+    flex: 1 1 auto;
+    min-height: 0;
+}
+
+/* ліва колонка — фасети-категорії (власний скрол) */
+.search-mega__aside {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-height: 0;
+    overflow-y: auto;
+    padding-right: 16px;
+    border-right: 1px solid #ededed;
+}
+
+.search-mega__facet {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    text-align: left;
+    padding: 9px 12px;
+    border-radius: 10px;
+    transition: background 0.15s;
+}
+
+.search-mega__facet:hover {
+    background: #f5f6f7;
+}
+
+.search-mega__facet.is-active {
+    background: #f5f6f7;
+}
+
+.search-mega__facet-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    min-width: 0;
+}
+
+.search-mega__facet-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1a141f;
+}
+
+.search-mega__facet-sub {
+    font-size: 12px;
+    color: #9aa0a6;
+}
+
+.search-mega__facet-count {
+    flex: 0 0 auto;
+    font-size: 14px;
+    font-weight: 600;
+    color: #9aa0a6;
+}
+
+.search-mega__facet-badge {
+    flex: 0 0 auto;
+    min-width: 28px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: #e81602;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* права частина — групи результатів (власний скрол) */
+.search-mega__groups {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px 28px;
+    align-content: start;
+    min-height: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+/* колонки-групи не повинні розпирати сітку довгими назвами */
+.search-group {
+    min-width: 0;
+}
+
+/* тонкі скролбари в колонках */
+.search-mega__aside::-webkit-scrollbar,
+.search-mega__groups::-webkit-scrollbar {
+    width: 8px;
+}
+
+.search-mega__aside::-webkit-scrollbar-thumb,
+.search-mega__groups::-webkit-scrollbar-thumb {
+    background: #d2d5d9;
+    border-radius: 8px;
+}
+
+.search-mega__aside,
+.search-mega__groups {
+    scrollbar-width: thin;
+    scrollbar-color: #d2d5d9 transparent;
+}
+
+.search-group__head {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    padding-bottom: 10px;
+    margin-bottom: 6px;
+    border-bottom: 1px solid #ededed;
+    color: #1a141f;
+}
+
+.search-group__title {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.search-group__sub {
+    font-size: 12px;
+    color: #9aa0a6;
+}
+
+.search-group__arrow {
+    flex-shrink: 0;
+    margin-left: auto;
+    align-self: center;
+    width: 26px;
+    height: 26px;
+    display: grid;
+    place-content: center;
+    border-radius: 50%;
+    color: #1a141f;
+    transition:
+        background 0.2s,
+        color 0.2s;
+}
+
+.search-group__arrow svg {
+    width: 20px;
+    height: 20px;
+}
+
+.search-group__head:hover .search-group__arrow {
+    background: #00a046;
+    color: #fff;
+}
+
+.search-group__item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px;
+    border-radius: 10px;
+    color: #1a141f;
+    transition: background 0.15s;
+}
+
+.search-group__item:hover {
+    background: #f5f6f7;
+}
+
+.search-group__thumb {
+    flex: 0 0 auto;
+    width: 56px;
+    height: 56px;
+    display: grid;
+    place-items: center;
+    padding: 4px;
+    border-radius: 8px;
+    background: #f5f6f7;
+}
+
+.search-group__thumb img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.search-group__info {
+    min-width: 0;
+}
+
+.search-group__name {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    overflow-wrap: anywhere;
+    font-size: 13px;
+    line-height: 1.3;
+}
+
+.search-group__price {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 4px;
+}
+
+.search-group__cost {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1a141f;
+}
+
+.search-group__stock {
+    font-size: 12px;
+    color: #9aa0a6;
+}
+
+.search-group__stock::before {
+    content: "/ ";
+}
+
+.search-group__more {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 13px;
+    color: #9aa0a6;
+    transition: color 0.2s;
+}
+
+.search-group__more:hover {
+    color: #1a141f;
+}
+
+/* ========== СТАН 1: переглянуті товари ========== */
+.search-panel {
+    background: #f5f6f7;
+    border-radius: 14px;
+    padding: 16px;
+}
+
+.search-panel__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 14px;
+}
+
+.search-panel__title {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #1a141f;
+}
+
+.search-panel__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    flex: 0 0 auto;
+    padding: 8px 8px 8px 16px;
+    border-radius: 99px;
+    background: #fff;
+    border: 1px solid #e2e4e7;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1a141f;
+    transition:
+        background 0.2s,
+        border-color 0.2s;
+}
+
+.search-panel__link svg {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    color: #00a046;
+}
+
+.search-panel__link:hover {
+    background: #f1f2f4;
+    border-color: #d2d5d9;
+}
+
+.search-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 12px;
+}
+
+.search-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    border-radius: 12px;
+    background: #fff;
+    border: 1px solid #ededed;
+    color: #1a141f;
+    transition:
+        box-shadow 0.2s,
+        border-color 0.2s;
+}
+
+.search-card:hover {
+    border-color: #d2d5d9;
+    box-shadow: 0 8px 24px rgba(20, 20, 31, 0.08);
+}
+
+.search-card__media {
+    position: relative;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.search-card__img {
+    display: flex;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.search-card__sticker {
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 86px;
+    padding: 4px 7px;
+    border-radius: 4px;
+    background: #fa871d;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 800;
+    line-height: 1.05;
+    text-transform: uppercase;
+    transform: rotate(-4deg);
+}
+
+.search-card__promo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: #00a046;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 3px;
+}
+
+.search-card__promo b {
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.search-card__promo i {
+    font-style: normal;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.1;
+}
+
+.search-card__promo i:nth-of-type(1) {
+    font-size: 6px;
+}
+
+.search-card__promo i:nth-of-type(2) {
+    font-size: 4px;
+    opacity: 0.85;
+}
+
+.search-card__title {
+    font-size: 14px;
+    line-height: 1.3;
+    min-height: 36px;
+    margin-bottom: 8px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.search-card__chips {
+    margin-bottom: 8px;
+}
+
+.search-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 99px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.search-chip::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+.search-chip--bonus {
+    background: #f3e9ff;
+    color: #7a3df0;
+}
+
+.search-chip--refurb {
+    background: #fff3d6;
+    color: #a9750a;
+}
+
+.search-card__foot {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 8px;
+    margin-top: auto;
+}
+
+.search-card__old {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 4px;
+    font-size: 12px;
+    color: #9aa0a6;
+}
+
+.search-card__cut {
+    padding: 1px 5px;
+    border-radius: 4px;
+    background-color: #e81602;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.search-card__price {
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 1;
+    color: #e81602;
+}
+
+.search-card__price span {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.search-card__buy {
+    flex: 0 0 auto;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: #00a046;
+    color: #fff;
+    display: grid;
+    place-content: center;
+    transition: background 0.2s;
+}
+
+.search-card__buy svg {
+    width: 22px;
+    height: 22px;
+}
+.search-card__buy.disabled,
+.search-card__buy[disabled] {
+    background-color: #e0e0e0;
+    color: #b0b0b0;
+}
+.search-card__buy.is-active {
+    background-color: #008a3c;
+}
+
+.search-card__bonus {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    font-size: 13px;
+    line-height: 1.2;
+    color: #1a141f;
+}
+
+.search-card__bonus img {
+    flex: 0 0 auto;
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+/* ---------- затемнення сторінки ---------- */
+.search-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 1500;
+    background: rgba(20, 20, 31, 0.45);
+    opacity: 0;
+    visibility: hidden;
+    transition:
+        opacity 0.2s ease,
+        visibility 0.2s ease;
+}
+
+.search-backdrop.is-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ---------- адаптив ---------- */
+/* =========================================================
+   Сторінка: результати пошуку (search-results.html)
+   Базується на каталозі (реюз .catalog / .filters-aside /
+   .product-card з app.css). Тут лише специфіка пошуку:
+   заголовок-запит, помаранчевий чип категорії, перемикач
+   «Повна ціна / Ціна в місяць», лічильник товарів.
+   Підключати ПІСЛЯ app.css.
+   ========================================================= */
+
+/* ---------- заголовок «За запитом ... знайдено» ---------- */
+.search-results__title {
+  font-size: 28px;
+}
+
+.search-results__title .catalog__title-count {
+  font-weight: 500;
+}
+
+/* дрібний лічильник перед чипами (у рядку обраних фільтрів) */
+.search-results__count {
+  align-self: center;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.25;
+  color: #6a6b81;
+}
+
+/* ---------- помаранчевий чип категорії ---------- */
+.catalog__selected--category {
+  border-color: #fa871d;
+  background-color: #fa871d;
+  color: #fff;
+}
+
+.catalog__selected--category::after {
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.0006 8.82178L14.1256 4.69678L15.3039 5.87511L11.1789 10.0001L15.3039 14.1251L14.1256 15.3034L10.0006 11.1784L5.8756 15.3034L4.69727 14.1251L8.82227 10.0001L4.69727 5.87511L5.8756 4.69678L10.0006 8.82178Z' fill='white'/%3E%3C/svg%3E%0A");
+}
+
+/* ---------- перемикач «Повна ціна / Ціна в місяць» ---------- */
+.price-mode {
+  flex: 0 0 auto;
+  display: inline-flex;
+  gap: 2px;
+  padding: 3px;
+  border-radius: 999px;
+  background: #f4f4f4;
+}
+
+.price-mode__btn {
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1;
+  color: #6a6b81;
+  white-space: nowrap;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.price-mode__btn.is-active {
+  background: #fff;
+  color: #00a046;
+  box-shadow: 0 1px 3px rgba(20, 20, 31, 0.14);
+}
+
+/* ---------- адаптив ---------- */
+
+@media (width <= 75em) {
+    .search-mega {
+        grid-template-columns: 240px minmax(0, 1fr);
+    }
+
+    .search-mega__groups {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .search__submit {
+        padding: 10px 12px;
+    }
+
+    .search__submit span {
+        display: none;
+    }
+}
+
+@media (width <= 61.99875em) {
+    .search-open body {
+        overflow: hidden;
+        touch-action: none;
+        overscroll-behavior: none;
+    }
+    .search-drop {
+        top: calc(100% + 8px);
+    }
+
+    .search-drop__inner {
+        border-radius: 0;
+        max-height: 100%;
+        height: calc(var(--viewport-height-s, 80vh) - (var(--top-position) + 52px));
+    }
+
+    .header__body.--fixed .search-drop__inner {
+        height: calc(var(--viewport-height-s, 80vh) - (var(--header-offset-height) + 52px));
+    }
+
+    /* на вузьких екранах колонки стекаються — один спільний скрол */
+    .search-drop__state[data-state="results"]:not([hidden]) {
+        overflow-y: auto;
+    }
+
+    .search-mega,
+    .search-mega__aside,
+    .search-mega__groups {
+        min-height: auto;
+        overflow: visible;
+    }
+
+    .search-mega {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .search-mega__aside {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 8px;
+        padding-right: 0;
+        padding-bottom: 16px;
+        border-right: 0;
+        border-bottom: 1px solid #ededed;
+    }
+
+    .search-mega__facet {
+        width: auto;
+    }
+
+    .search-mega__facet-sub {
+        display: none;
+    }
+
+    .search-backdrop {
+        display: none;
+    }
+  .search-results__title {
+    font-size: 24px;
+  }
+}
+
+@media (width <= 47.99875em) {
+    .search-drop__inner {
+        padding: 16px;
+    }
+
+    .search-drop__close {
+        top: 10px;
+        right: 10px;
+    }
+
+    .search-mega__groups {
+        grid-template-columns: 1fr;
+    }
+  .search-results__title {
+    font-size: 20px;
+  }
+
+  .price-mode__btn {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}
+
+@media (any-hover: hover) {
+    .search__submit:hover {
+        background-color: #008a3c;
+    }
+    .search-card__buy:hover {
+        background-color: #008a3c;
+    }
+}

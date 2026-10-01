@@ -1,0 +1,128 @@
+.newsletter {
+  margin-bottom: 80px;
+}
+.newsletter__body {
+  padding: 0 48px;
+  border-radius: 8px;
+  background-color: #c2e5ff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  overflow: hidden;
+}
+.newsletter__content {
+  padding: 48px 0;
+  max-width: 580px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.newsletter__title {
+  font-weight: 600;
+  line-height: 125%;
+  font-size: 32px;
+}
+.newsletter__form {
+  max-width: 465px;
+  width: 100%;
+  display: flex;
+  align-items: start;
+}
+.newsletter__form .input-field {
+  width: 100%;
+}
+.newsletter__input {
+  min-height: 44px;
+  padding: 10px 16px;
+  background-color: #fff;
+  border: 1px solid #c8c8c8;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 125%;
+  border-radius: 8px 0 0 8px;
+}
+.newsletter__input::placeholder {
+  color: #1a141f;
+}
+.newsletter__input[placeholder]:not([data-fls-placeholder-nohiden])::placeholder {
+  transition: opacity 0.3s;
+}
+.newsletter__input[placeholder]:not([data-fls-placeholder-nohiden]):focus::placeholder {
+  opacity: 0;
+}
+.newsletter__btn {
+  min-height: 44px;
+  border-radius: 0 8px 8px 0;
+  padding: 10px 18px;
+  font-size: 16px;
+}
+.newsletter__img {
+  align-self: flex-end;
+  max-width: 604px;
+  width: 100%;
+}
+.newsletter__img img {
+  width: 100%;
+  object-fit: cover;
+}
+@media (max-width: 68.74875em) {
+  .newsletter__body {
+    padding: 0;
+  }
+  .newsletter__content {
+    padding: 32px 0 32px 24px;
+  }
+}
+@media (max-width: 61.99875em) {
+  .newsletter__title {
+    font-size: 24px;
+  }
+  .newsletter__img {
+    margin-right: -108px;
+  }
+}
+@media (max-width: 47.99875em) {
+  .newsletter {
+    margin-bottom: 40px;
+  }
+  .newsletter__body {
+    gap: 16px;
+  }
+  .newsletter__content {
+    max-width: 380px;
+  }
+  .newsletter__img {
+    max-width: 384px;
+  }
+}
+@media (max-width: 43.74875em) {
+  .newsletter__body {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .newsletter__content {
+    padding: 32px 24px 0 24px;
+    max-width: 100%;
+  }
+  .newsletter__img {
+    margin-right: 0;
+    max-width: 100%;
+  }
+}
+@media (max-width: 29.99875em) {
+  .newsletter__form {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .newsletter__input {
+    border-radius: 8px;
+  }
+  .newsletter__btn {
+    max-width: 100%;
+    border-radius: 8px;
+  }
+}
